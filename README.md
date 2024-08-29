@@ -24,6 +24,7 @@ Este projeto é uma API construída em Node.js que utiliza a API Gemini para ler
 │  ├── utils
 │  │   ├── gemini.ts              # Utilitário para interagir com a API Gemini
 │  │   ├── logger.ts              # Configuração do logger (Winston)
+│  │   ├── response.ts            # Métodos para facilitar o envio das responses
 │  │   └── url-image.ts           # Geração de URLs temporárias para imagens
 │  └── index.ts                   # Ponto de entrada principal da aplicação
 │── Dockerfile             # Configuração do Docker refente ao Nodejs

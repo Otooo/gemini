@@ -21,7 +21,6 @@ Este projeto é uma API construída em Node.js que utiliza a API Gemini para ler
 │  │   └── measure-route.ts       # Definição de rotas para a API
 │  ├── services
 │  │   └── measure-service.ts     # Lógica de negócio e integração com Gemini
-│  ├── uploads               # Diretório para armazenamento das imagens para geração das urls
 │  ├── utils
 │  │   ├── gemini.ts              # Utilitário para interagir com a API Gemini
 │  │   ├── logger.ts              # Configuração do logger (Winston)

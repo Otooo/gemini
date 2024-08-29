@@ -1,0 +1,33 @@
+version: '3.7'
+
+#Extensões
+x-env: &env
+  - .env
+
+services:
+  app:
+    build: .
+    restart: always
+    ports:
+      - "80:3000"
+    depends_on:
+      - mongo
+    volumes:
+      - .:/usr/src/api
+      - /usr/src/api/node_modules
+    environment:
+      - NODE_ENV=${NODE_ENV:-development}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - MONGO_URI=mongodb://mongo:27017/${DATABASE_NAME:-shopper_db}
+    command: npm run dev
+
+  mongo:
+    image: mongo:latest
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

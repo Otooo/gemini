@@ -5,30 +5,32 @@ Este projeto é uma API construída em Node.js que utiliza a API Gemini para ler
 
 ## Estrutura do Projeto
 ```bash
-│── src
-│  ├── configs
+│── src/
+│  ├── configs/
 │  │   ├── database.ts            # Configuração do banco de dados (Mongoose)
 │  │   └── google.ts              # Configuração da API do Google (Gemini)
-│  ├── controllers
+│  ├── controllers/
 │  │   └── measure-controller.ts  # Controladores para chamadas das rotas
-│  ├── formatters
+│  ├── formatters/
 │  │   └── measure-formatter.ts   # Formatadores para respostas de requisições
-│  ├── middlewares
+│  ├── middlewares/
 │  │   └── measure-middleware.ts  # Middlewares para validação e processamento
-│  ├── models
+│  ├── models/
 │  │   └── measure-model.ts       # Modelos de dados (Mongoose)
-│  ├── routes
+│  ├── routes/
 │  │   └── measure-route.ts       # Definição de rotas para a API
-│  ├── services
+│  ├── services/
 │  │   └── measure-service.ts     # Lógica de negócio e integração com Gemini
-│  ├── utils
+│  ├── utils/
 │  │   ├── gemini.ts              # Utilitário para interagir com a API Gemini
 │  │   ├── logger.ts              # Configuração do logger (Winston)
 │  │   ├── response.ts            # Métodos para facilitar o envio das responses
 │  │   └── url-image.ts           # Geração de URLs temporárias para imagens
 │  └── index.ts                   # Ponto de entrada principal da aplicação
+│── test/                  # Diretório contendo os testes da aplicação
+│── jest.config.js         # Configuração da ferramenta de teste (Jest)
 │── Dockerfile             # Configuração do Docker refente ao Nodejs
-│── docker-compose.yml     # Configuração do Docker Compose
+│── docker-compose.yml     # Configuração do Docker Compose da aplicação
 │── README.md              # Documentação do projeto
 ```
 
@@ -67,8 +69,8 @@ docker compose up -d
 
 
 ## Uso  
-  * O endereço padrão para o uso da API: `http://localhost:80/`  
-  * Você pode acessar, pelo navegador, o seguinte endereço para verificar se o servidor está ativo `http://localhost:80/check`  
+  * O endereço padrão para o uso da API, após rodar o docker compose, é: `http://localhost:80/`  
+  * Você pode acessar, pelo navegador, o seguinte endereço para verificar se o servidor está ativo: `http://localhost:80/check`  
   * Seguem os endpoints principais da API:  
     - POST /upload -> Responsável por receber uma imagem em base 64, consultar o Gemini e retornar a medida lida pela API.  
         ````
@@ -100,3 +102,15 @@ docker compose up -d
     - 404: Leitura não encontrada (PATCH, GET)
     - 409: Leitura já existente (POST) ou Leitura já confirmada (PATCH)
     - 500: Erro no servidor  
+
+
+## Testes
+  - execute: 
+    ```bash
+      yarn test
+    ```
+    ou
+
+    ```bash
+      npm test
+    ```

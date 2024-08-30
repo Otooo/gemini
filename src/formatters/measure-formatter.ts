@@ -20,7 +20,7 @@ export const MeasureFormatter = {
 
     data.forEach((measure: IMeasure) => {
       dataF.measures.push({
-        measure_uuid: measure._id,
+        measure_uuid: (measure._id as Object).toString(),
         measure_datetime: measure.datetime,
         measure_type: measure.type,
         has_confirmed: measure?.has_confirmed || false,

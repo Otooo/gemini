@@ -55,7 +55,7 @@ export const MeasureValidate = {
    */
   async list (req: Request, res: Response, next: NextFunction) {
     const customer_code = req.params.customer_code;
-    const type = req.query.measure_type as MeasureType;
+    const type = req.query?.measure_type as MeasureType;
 
     // Validate measure type.
     if (type && !isValidMeasureType(type, res, 'INVALID_TYPE')) { return };
